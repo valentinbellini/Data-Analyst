@@ -9,6 +9,7 @@ This repository contains a  **Google Sheets** template designed to help you trac
 * **Real-Time Data:** Integrates with Google Finance and custom functions to pull live prices and market data.
 * **Performance Metrics:** Calculates returns, cost basis, and current valuation.
 * **Currency Conversion:** Handles assets denominated in different currencies (e.g., Argentine Pesos (ARS) and US Dollars (USD)).
+* **Advanced Google Sheets** Using SQL Queries, VLOOKUP, conditionals, filters, ...
 
 ## 🇦🇷 Understanding Local vs. International Equities: Stocks vs. CEDEARs
 

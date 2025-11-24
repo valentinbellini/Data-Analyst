@@ -19,6 +19,10 @@ This project analyzes the historical evolution (2012-2024) and detailed composit
 - Check for data types
 - Check for duplicates and eliminate them
 
+#### Results:
+In "inv-superficie-id-2024.csv" from 88306 to 86687 rows
+In "inv-superficie-viniedos-2012-2024.csv" from 9053 to 9052 rows
+
 ### 2) Import CSV Data into Pandas DataFrame
 Importing both, the historial dataset from 2012 to 2024 and the dataset with all the information about a single year (2024).
 - Historical Dataset:
