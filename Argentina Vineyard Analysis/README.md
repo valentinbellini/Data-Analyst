@@ -22,16 +22,17 @@ This project analyzes the historical evolution (2012-2024) and detailed composit
 ### 2) Import CSV Data into Pandas DataFrame
 Importing both, the historial dataset from 2012 to 2024 and the dataset with all the information about a single year (2024).
 - Historical Dataset:
-Nro   Column               Non-Null Count  Dtype  
----  ------               --------------  -----  
- 0   anio                 9053 non-null   int64  
- 1   provincia_id         9053 non-null   int64  
- 2   provincia_nombre     9053 non-null   object 
- 3   departamento_id      9053 non-null   int64  
- 4   departamento_nombre  9053 non-null   object 
- 5   localidad_id         9053 non-null   object 
- 6   localidad_nombre     9053 non-null   object 
- 7   superficie_ha        9053 non-null   float64
+
+| Nro | Column | Non-Null Count | Dtype |
+| :---: | :--- | :---: | :--- |
+| 0 | anio | 9053 non-null | int64 |
+| 1 | provincia_id | 9053 non-null | int64 |
+| 2 | provincia_nombre | 9053 non-null | object |
+| 3 | departamento_id | 9053 non-null | int64 |
+| 4 | departamento_nombre | 9053 non-null | object |
+| 5 | localidad_id | 9053 non-null | object |
+| 6 | localidad_nombre | 9053 non-null | object |
+| 7 | superficie\_ha | 9053 non-null | float64 |
 
 - 2024 Dataset: province, department, locality, variety, color, year_of_plantation, planted_area_ha
 
@@ -44,12 +45,14 @@ Nro   Column               Non-Null Count  Dtype
 
 ### 4) Save DataFrame into a SQLite database
 
-''' python
+```python
+import sqlite3
+
 conn = sqlite3.connect(SQLITE_DB)
 df_historico.to_sql('historico_vinedos', conn, if_exists='replace', index=False)
-df_2024.to_sql('vineyards_2024',conn, if_exists='replace', index=False)
+df_2024.to_sql('vineyards_2024', conn, if_exists='replace', index=False)
 conn.close()
-'''
+```
 
 ### 5) SQL Queries to analyze data
 
