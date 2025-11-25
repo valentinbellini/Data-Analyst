@@ -60,4 +60,8 @@ conn.close()
 
 ### 5) SQL Queries to analyze data
 
+- Analyse historical planted area by province
+- Analyse distribution of the years of plantation in the 2024 dataset
+- Analyse colors and varieties distribution by province
+
 ### 6) Export new tables for plotting in Tableau
