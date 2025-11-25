@@ -14,6 +14,9 @@ This project analyzes the historical evolution (2012-2024) and detailed composit
 
 ## Step-by-Step
 
+In the image below there is a Sumary Diagram of the Project
+![Summary-Proejct-Diagram](img/summary-project-diagram.jpg)
+
 ### 1) Data Cleaning on Google Sheets.
 - Check for nulls and eliminate them
 - Check for data types
@@ -40,10 +43,10 @@ Importing both, the historial dataset from 2012 to 2024 and the dataset with all
 
 - 2024 Dataset: province, department, locality, variety, color, year_of_plantation, planted_area_ha
 
-### 3) Check for statistics and distribution to identified outliers.
+### 3) Check for statistics and distribution.
 
 - Using describe(), and info() method to quickly analize the limits.
-- Planted area distribution to identify outliers.
+- Planted area distribution
 
 ![Planted Area Distribution](img/Planted-Area-Distribution.png)
 
