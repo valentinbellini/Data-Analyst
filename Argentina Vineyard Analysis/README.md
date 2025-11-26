@@ -14,17 +14,18 @@ This project analyzes the historical evolution (2012-2024) and detailed composit
 
 ## Step-by-Step
 
-In the image below there is a Sumary Diagram of the Project
+In the image below there is a Summary Diagram of the Project
 ![Summary-Proejct-Diagram](img/summary-project-diagram.jpg)
 
-### 1) Data Cleaning on Google Sheets.
-- Check for nulls and eliminate them
+### 1) Data Cleaning
+Here we use both Google Sheets and Python (Jupyter Notebook) in order to clean the data. This includes:
+- Check for nulls
 - Check for data types
-- Check for duplicates and eliminate them
+- Check for duplicates
 
 #### Results:
-In "inv-superficie-id-2024.csv" from 88306 to 86687 rows
-In "inv-superficie-viniedos-2012-2024.csv" from 9053 to 9052 rows
+- In "inv-superficie-id-2024.csv" from 88306 to 86687 rows
+- In "inv-superficie-viniedos-2012-2024.csv" from 9053 to 9052 rows
 
 ### 2) Import CSV Data into Pandas DataFrame
 Importing both, the historial dataset from 2012 to 2024 and the dataset with all the information about a single year (2024).
