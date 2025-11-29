@@ -1,0 +1,1 @@
+SELECT * from granos_argentina;
