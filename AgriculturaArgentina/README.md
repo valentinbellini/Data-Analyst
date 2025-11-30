@@ -64,5 +64,8 @@ Se exportan los datos limpios a un nuevo CSV: (granos_argentina_1941_2023.csv)[d
 
 Se utiliza el CSV granos_argentina_1941_2023 para generar las visualizaciones en Tableu: https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/Hoja1?publish=yes
 
+![Produccion-Anual-Por-Provincia](img/produccion-anual-provincia.jpg)
+![Produccion-Temporal-Por-Grano-Y-Provincia](img/ProduccionGrano-tiempo.jpg)
+
 
 
