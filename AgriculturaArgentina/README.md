@@ -62,11 +62,15 @@ Se exportan los datos limpios a un nuevo CSV: (granos_argentina_1941_2023.csv)[d
 
 ## Visualización
 
-Se utiliza el CSV granos_argentina_1941_2023 para generar las visualizaciones en Tableu: https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/Hoja1?publish=yes
+Se utiliza el CSV granos_argentina_1941_2023 para generar las visualizaciones en Tableu
 
+https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/HistoricoSiembre#1
 ![Superficie Sembrada por Grano](img/SuperficieSembradaXGrano.jpg)
+
+https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/RendimientoGrano
 ![Rendimiento Promedio Anual por Grano](img/RendimientoPromAnual_Grano.jpg)
-![Correlacion entre Rendimiento y Porcentaje Cosechado/Sembrado](img/Correlacion_Rendimiento_PorcentajeCosecha.jpg)
+
+https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/ProdProvincia
 ![Top provincias en producción por grano](img/TopProduccionProvincias.jpg)
 
 
