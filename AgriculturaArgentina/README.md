@@ -46,7 +46,7 @@ Se tomará la intersección entre ambos para hacer un análisis en la serie *(19
 
 #### Exportar a CSV
 
-Se exportan los datos limpios a un nuevo CSV: (granos_argentina_1941_2023.csv)[datasets/granos_argentina_1941_2023.csv]
+Se exportan los datos limpios a un nuevo CSV: **granos_argentina_1941_2023.csv**
 
 ## Data Analysis
 
@@ -64,14 +64,6 @@ Se exportan los datos limpios a un nuevo CSV: (granos_argentina_1941_2023.csv)[d
 
 Se utiliza el CSV granos_argentina_1941_2023 para generar las visualizaciones en Tableu
 
-https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/HistoricoSiembre#1
-![Superficie Sembrada por Grano](img/SuperficieSembradaXGrano.jpg)
-
-https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/RendimientoGrano
-![Rendimiento Promedio Anual por Grano](img/RendimientoPromAnual_Grano.jpg)
-
-https://public.tableau.com/app/profile/valentin.bellini/viz/HistoriadegranosenArgentina/ProdProvincia
-![Top provincias en producción por grano](img/TopProduccionProvincias.jpg)
-
-
+https://public.tableau.com/views/HistoriadegranosenArgentina/ProdProvincia?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+![Top provincias en produccion por grano](img/dashboard_provincias.jpg)
 
