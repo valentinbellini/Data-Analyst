@@ -89,3 +89,5 @@ The resulting dashboard explores trends in production, yield, and provincial imp
 https://public.tableau.com/views/HistoriadegranosenArgentina/ProdProvincia?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 **Top Producing Provinces Dashboard Snapshot:**
+![Top provincias en produccion por grano](img/dashboard_provincias.jpg)
+
