@@ -43,7 +43,7 @@ The raw data cover different periods:
 
 The analysis will focus on the **intersection of these series** to ensure comparable timeframes, resulting in the period: **(1941-2023)**.
 
-#### Cleaning Logic
+### Cleaning Logic
 The following rules were applied to the data:
 * **Null Planting:** Entries where planting (`superficie_sembrada_ha`) is null are documented and removed, as a zero value makes subsequent harvest analysis irrelevant.
 * **Lost Harvest:** If planting is greater than zero, but the harvest (`superficie_cosechada_ha`) is null (or zero), the entry is kept and interpreted as a lost harvest, which is relevant for statistical loss calculations.
