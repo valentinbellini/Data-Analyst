@@ -67,6 +67,3 @@ conn.close()
 - Analyze historical planted area by province
 - Analyze distribution of the years of plantation in the 2024 dataset
 - Analyze colors distribution by province
-
-### 6) Export new tables for plotting in Tableau
-https://public.tableau.com/app/profile/valentin.bellini/viz/Vineyards_17644225642040/Map?publish=yes
