@@ -68,6 +68,9 @@ Se exportan los datos limpios a un nuevo [CSV](datasets/granos_argentina_1941_20
 
 ## Visualización
 
+Previo a la visualización en Tableu, se realiza un pre-análisis (o pre-viz) en R consultando el csv generado. Se puede ver el desarrollo en [Readme.rdm](R/readme.Rmd)
+![Evolución del rendimiento en el tiempo](R/imgs/Yield%20evolution%20over%20the%20years.png)
+
 Se utiliza el CSV granos_argentina_1941_2023 para generar las visualizaciones en [Tableau](https://public.tableau.com/views/HistoriadegranosenArgentina/Produccionporprovincia?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link).
 
 ![Top provincias en produccion por grano](img/dashboard_provincias.jpg)

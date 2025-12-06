@@ -1,0 +1,153 @@
+---
+title: "Exploratory Analysis of Grain Yield in Argentina (1941-2023)"
+author: "Valentin Bellini
+date: "06/12/2025"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    theme: readable
+---
+
+```{r setup, include=FALSE}
+# Global configuration for code chunks
+knitr::opts_chunk$set(
+  echo = TRUE,      # Display the code in the final document
+  message = FALSE,  # Suppress function messages
+  warning = FALSE,  # Suppress warnings
+  fig.width = 10,   # Figure width
+  fig.height = 6    # Figure height
+)
+```
+
+# Introduction
+This document presents an exploratory data analysis (EDA) of the yield (rinde) for various 
+grain crops in Argentina, covering the period from 1941 to 2023. 
+The goal is to visualize the historic evolution of the average yield and 
+examine the distribution of yields for a specific year, 2019.
+
+## 1. Data Preparation
+
+We load the necessary libraries and the dataset. The original yield data in $\text{kg/ha}$ 
+is converted to quintales per hectare ($\text{qq/ha}$), where $1$ quintal equals $100$ $\text{kg}$.
+
+``` R
+library(tidyverse)
+library(ggplot2)
+
+df <- read_csv("AgriculturaArgentina/datasets/granos_argentina_1941_2023.csv", 
+               locale = locale(encoding = "Latin1"))
+
+# Mutate the yield column to qq/ha and select columns of interest
+df_convert <- df |> 
+  mutate(rinde_qq_ha = rendimiento_kgxha / 100) |> 
+  select(cultivo_nombre, anio, rinde_qq_ha)
+```
+
+### 1.1 Calculation of Historic Annual Average Yield
+
+We group the data by crop and year to calculate the annual average yield, 
+which will be the basis for the time-series plot. We also count the number of observations ($N$) per group.
+
+``` R
+rinde_anual_prom_x_grano <- df_convert |>
+  group_by(cultivo_nombre, anio) |>
+  summarise(
+    # Average yield in qq/ha for the specific crop and year.
+    Rinde_Promedio_qq_ha = mean(rinde_qq_ha, na.rm = TRUE),
+    # Count of records per group (crop and year).
+    N_Observaciones = n()
+  ) |>
+  ungroup()
+```
+
+## 2. Visualization of Historic Yield Evolution
+
+The following scatter plot (with a smoothed trend line) shows how the average yield of the crops has evolved over the years.
+
+``` R
+plot_evolucion_rendimiento <- rinde_anual_prom_x_grano |>
+  ggplot(aes(x = anio, y = Rinde_Promedio_qq_ha, color = cultivo_nombre)) +
+  geom_point(alpha = 0.5) + # Semi-transparent points
+  geom_smooth(method = "loess", se = FALSE) + # Smooth trend line without standard error
+  labs(
+    title = "Historical Evolution of Annual Average Yield (qq/ha)",
+    x = "Year",
+    y = "Average Yield (Quintales / Hectare)",
+    color = "Crop" # Legend title.
+  ) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1")
+
+# Display the plot
+plot_evolucion_rendimiento
+```
+![Historic Yield Evolution](imgs\Yield%20evolution%20over%20the%20years.png)
+
+## 3. Detailed Analysis for Year r year_of_interest
+
+We filter the data for the specific year of interest (defined by year_of_interest) 
+to examine the dispersion and distribution of yields during that period.
+
+``` R
+year_of_interest <- 2019
+# Filter data for the year of interest
+df_anual <- df_convert |>
+  filter(anio == year_of_interest) |>
+  ungroup()
+```
+
+### 3.1. Boxplot
+
+The Boxplot is useful for visualizing the median, 
+spread (interquartile range), and outliers of the yield for each crop in the year r year_of_interest.
+
+``` R
+plot_rinde_anual_granos <- df_anual |>
+  ggplot(aes(x = cultivo_nombre, y = rinde_qq_ha, fill = cultivo_nombre)) +
+  geom_boxplot() +
+  labs(
+    title = paste("Annual Yield Dispersion (qq/ha) - Year", year_of_interest),
+    x = "Crop",
+    y = "Yield (Quintales / Hectare)",
+    fill = "Crop"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) # Rotate labels for better readability
+
+# Display the plot
+plot_rinde_anual_granos
+```
+
+![2019 Yields](imgs\2019%20Anual%20yields%20.png)
+
+### 3.2. Frequency Distribution (Histogram)
+
+The faceted histograms allow us to see the specific distribution shape 
+(normal, skewed, etc.) of the yields for each crop in the year r year_of_interest.
+
+``` R
+plot_distribucion_rinde <- df_anual |>
+  ggplot(aes(x = rinde_qq_ha, fill = cultivo_nombre)) +
+  geom_histogram(
+    binwidth = 3,
+    color = "black",
+    alpha = 0.7 # Transparency for better viewing
+  ) +
+  # Use `facet_wrap()` to create separate panels for each crop.
+  facet_wrap(~ cultivo_nombre, scales = "free_y") +
+  labs(
+    title = paste("Yield Frequency Distribution (qq/ha) - Year", year_of_interest),
+    subtitle = "Frequency",
+    x = "Yield (Quintales / Hectare)",
+    y = "Frequency (Number of Observations/Records)",
+    fill = "Crop"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none") + # Legend is redundant with facet_wrap
+  scale_fill_brewer(palette = "Set2")
+
+# Display the plot
+plot_distribucion_rinde
+```
+![Yield distribution](imgs\Yield%20distribution.png)
