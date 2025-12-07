@@ -31,7 +31,7 @@ examine the distribution of yields for a specific year, 2019.
 We load the necessary libraries and the dataset. The original yield data in $\text{kg/ha}$ 
 is converted to quintales per hectare ($\text{qq/ha}$), where $1$ quintal equals $100$ $\text{kg}$.
 
-``` R
+``` {R Loading data and package}
 library(tidyverse)
 library(ggplot2)
 
@@ -49,7 +49,7 @@ df_convert <- df |>
 We group the data by crop and year to calculate the annual average yield, 
 which will be the basis for the time-series plot. We also count the number of observations ($N$) per group.
 
-``` R
+``` {R}
 rinde_anual_prom_x_grano <- df_convert |>
   group_by(cultivo_nombre, anio) |>
   summarise(
@@ -65,7 +65,7 @@ rinde_anual_prom_x_grano <- df_convert |>
 
 The following scatter plot (with a smoothed trend line) shows how the average yield of the crops has evolved over the years.
 
-``` R
+``` {R}
 plot_evolucion_rendimiento <- rinde_anual_prom_x_grano |>
   ggplot(aes(x = anio, y = Rinde_Promedio_qq_ha, color = cultivo_nombre)) +
   geom_point(alpha = 0.5) + # Semi-transparent points
@@ -89,7 +89,7 @@ plot_evolucion_rendimiento
 We filter the data for the specific year of interest (defined by year_of_interest) 
 to examine the dispersion and distribution of yields during that period.
 
-``` R
+``` {R}
 year_of_interest <- 2019
 # Filter data for the year of interest
 df_anual <- df_convert |>
@@ -102,7 +102,7 @@ df_anual <- df_convert |>
 The Boxplot is useful for visualizing the median, 
 spread (interquartile range), and outliers of the yield for each crop in the year r year_of_interest.
 
-``` R
+``` {R}
 plot_rinde_anual_granos <- df_anual |>
   ggplot(aes(x = cultivo_nombre, y = rinde_qq_ha, fill = cultivo_nombre)) +
   geom_boxplot() +
@@ -126,7 +126,7 @@ plot_rinde_anual_granos
 The faceted histograms allow us to see the specific distribution shape 
 (normal, skewed, etc.) of the yields for each crop in the year r year_of_interest.
 
-``` R
+``` {R}
 plot_distribucion_rinde <- df_anual |>
   ggplot(aes(x = rinde_qq_ha, fill = cultivo_nombre)) +
   geom_histogram(
