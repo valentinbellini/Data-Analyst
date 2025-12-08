@@ -30,17 +30,17 @@ Los tres conjuntos de datos tienen el mismo formato en sus columnas:
 
 Se realiza una limpieza de los datos previo a unificar los tres datasets en uno solo. Se buscan incosistencias, valores nulos que puedan afectar resultados y se ajustan las fechas de la serie de tiempo para evaluar los mismos períodos en todos los granos.
 
-### Datatype
+### `Datatype`
 Debido a que los tipos de datos para algunas de las columnas son distintas, se unificarán los mismos para poder concatenar todos los datasets en uno mismo.
 
-### Filter date
+### `Filter date`
 - Serie maiz: 1923-2023
 - Serie soja: 1941-2023
 - Serie trigo: 1927-2024
 
 Se tomará la intersección entre ambos para hacer un análisis en la serie *(1941-2023)*.
 
-### EDA
+### `EDA`
 
 Las siguientes reglas se aplican a los datos:
 
@@ -50,9 +50,12 @@ Las siguientes reglas se aplican a los datos:
 * **Inconsistencias:** Entradas donde la cosecha es mayor a la siembr (`superficie_cosechada_ha > superficie_sembrada_ha`) son corregidas o eliminadas.
 * **Rendimiento Nulo:** Si la siembra $> 0$ y la cosecha $> 0$, pero el rendimiento (`rendimiento_kgxha`) es $0$, se elimina la entrada.
 * **Outliers:** Entradas con rendimientos mayores a los máximos definidos en el programa (`MAX_YIELD_SOY`, `MAX_YIELD_CORN`) son tomados como outliers que afectan las estadísticas y son eliminados.
-### Exportar a CSV
+
+### `Exportar a CSV`
 
 Se exportan los datos limpios a un nuevo [CSV](datasets/granos_argentina_1941_2023.csv)
+
+---
 
 ## Data Analysis
 
@@ -65,6 +68,8 @@ Se exportan los datos limpios a un nuevo [CSV](datasets/granos_argentina_1941_20
 1. Producción total y rendimiento promedio por año y grano: [produccion_anual.sql](queries/produccion_anual.sql)
 2. Producción y siembra total por provincia y grano: para identificar las provincias más importantes para cada cultivo: [produccion_por_provincia.sql](queries/produccion_por_provincia.sql)
 3. Rendimiento Promedio de los cultivos a lo largo del tiempo: [rendimiento_promedio_anual.sql](queries/rendimiento_promedio_anual.sql)
+
+---
 
 ## Visualización
 

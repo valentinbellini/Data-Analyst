@@ -28,14 +28,14 @@ The three datasets share an identical column structure:
 
 ---
 
-## Data Cleaning (ETL Process)
+## `Data Cleaning (ETL Process)`
 
 Data cleaning is performed before merging the three datasets into a single file. The process focuses on identifying inconsistencies, handling null values that could affect results, and adjusting the time series to ensure all grains are evaluated over the same period.
 
-### Data Type Standardization
+### `Data Type Standardization`
 Due to observed inconsistencies in the data types across the individual datasets, types for key numerical columns are standardized to ensure proper concatenation.
 
-### Time Series Filtering
+### `Time Series Filtering`
 The raw data cover different periods:
 * Corn Series: 1923-2023
 * Soy Series: 1941-2023
@@ -43,7 +43,7 @@ The raw data cover different periods:
 
 The analysis will focus on the **intersection of these series** to ensure comparable timeframes, resulting in the period: **(1941-2023)**.
 
-### Cleaning Logic
+### `Cleaning Logic`
 The following rules were applied to the data:
 * **Null Planting:** Entries where planting (`superficie_sembrada_ha`) is null are documented and removed, as a zero value makes subsequent harvest analysis irrelevant.
 * **Lost Harvest:** If planting is greater than zero, but the harvest (`superficie_cosechada_ha`) is null (or zero), the entry is kept and interpreted as a lost harvest, which is relevant for statistical loss calculations.
@@ -52,7 +52,7 @@ The following rules were applied to the data:
 * **Zero Yield:** If planting $> 0$ and harvest $> 0$, but yield (`rendimiento_kgxha`) is $0$, the entry is removed.
 * **Outliers:** Entries where the yield is greater than a defined maximum yield (e.g., `MAX_YIELD_SOY`, `MAX_YIELD_CORN`) are removed.
 
-#### Export to CSV
+### `Export to CSV`
 
 The cleaned and unified data are exported to a new CSV file: **`granos_argentina_1941_2023.csv`**
 
