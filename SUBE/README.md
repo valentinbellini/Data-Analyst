@@ -1,4 +1,27 @@
+# SUBE
 
+This project is a Data Analysis of the main transportation system in Argentina: SUBE. This system contain bus, metro and train transportation around all the country and the information is provide by the goverment thru their datasets website. We are doing two analysis here:
+
+1. **Capacity and Efficiency Analysis**
+
+This set of questions aims to identify whether the system is being used inefficiently or if there are demand peaks that could saturate it.
+
+- *Demand Peaks:* What is the peak hour (time of day) with the highest average usage for each type of transport (Bus, Train, Subway)?Do the highest-usage days correlate with specific events or holidays?
+
+- *Geographical Distribution:* Are there provinces or municipalities with disproportionately low or high usage relative to their population or the number of operating lines? Could this indicate lack of coverage or the need for more units?
+
+- *Demand–Supply Relationship:* How is the maximum demand (highest QUANTITY) distributed across LINE? Are there lines that consistently exceed usage thresholds, suggesting a need to increase frequency or vehicle size?
+
+2. **Seasonality and User Behavior Analysis**
+
+These questions help us understand recurring usage patterns and user needs.
+
+- *Day-of-Week Patterns:* What is the percentage drop in average usage on weekends (Saturday/Sunday) compared to the average for weekdays (Monday–Friday), and how does this drop vary between Buses, Trains, and Subways? (A very marked drop suggests the system is mainly used for commuting to work/school.)
+
+- *Annual/Monthly Trends:* Does the total usage show a steady recovery over the 2021–2024 period, or has it stagnated? Are there consistent drops in specific months (e.g., January/February due to vacations)?
+
+- *Secondary Trips:* When looking at the distribution of QUANTITY, can we identify many records with very low values (close to 1)?
+This could indicate very short trips or transfers.
 
 ## Data Cleaning
 
